@@ -43,7 +43,7 @@ def displayStartScreen():
 	
 	title = device + " Setup"
 	menuItems = [	"Change Root Password", "Change Host Name",
-					"Expand File System", "Configure Network Interfaces",
+					"Configure Network Interfaces",
 					"Set up OPKG Repository",
 					"Remove Unused Packages", "Advanced Options -->"]
 		
@@ -79,21 +79,19 @@ def displayStartScreen():
 	elif selection == 1:
 		changeHostName()
 	elif selection == 2:
-		expandFileSystem()
-	elif selection == 3:
 		configureNetworkInterfaces()
-	elif selection == 4:
+	elif selection == 3:
 		configureOpkgRepository()
-	elif selection == 5:
+	elif selection == 4:
 		removeUnusedPackages()
-	elif selection == 6:
+	elif selection == 5:
 		advancedOptions()
-	elif selection == 7:
+	elif selection == 6:
 		if (not deviceIsIot2020):
 			configureSerial()
 		elif (wifiEnabled and wifiInterfaceConfigured):
 			configureWLAN()
-	elif selection == 8:
+	elif selection == 7:
 		configureWLAN()
 
 def changeNodeRedAutoStart(status):
@@ -106,6 +104,7 @@ def changeNodeRedAutoStart(status):
 		st = os.stat(fileName)
 		os.chmod(fileName, st.st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
 		subprocess.call("update-rc.d launch_node-red.sh defaults", shell=True, stdout=open(os.devnull, 'wb'))
+		subprocess.call("/usr/bin/node /usr/lib/node_modules/node-red/red >/dev/null &", shell=True, stdout=open(os.devnull, 'wb'))
 	elif (status == "off"):
 		subprocess.call("update-rc.d launch_node-red.sh remove", shell=True, stdout=open(os.devnull, 'wb'))
 		os.remove("/etc/init.d/launch_node-red.sh")
@@ -163,7 +162,7 @@ def changeRootPassword():
 
 def removeUnusedPackages():
 	### Edit here ###
-	packageList = ["galileo-target", "nodejs"] 	# Contains all potential 
+	packageList = ["galileo-target", "nodejs", "tcf-agent"] 	# Contains all potential 
 												# candidates for removal
 	###
 	
