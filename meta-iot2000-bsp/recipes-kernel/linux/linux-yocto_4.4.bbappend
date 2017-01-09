@@ -6,8 +6,19 @@ SRC_URI += " \
     file://0003-serial-8250_pci-Use-symbolic-constants-for-EXAR-s-MP.patch \
     file://0004-serial-8250_pci-Fix-EXAR-feature-control-register-co.patch \
     file://0005-serial-8250_pci-Add-support-for-IOT2000-platform.patch \
-    file://0006-x86-efi-Add-capsule-update-driver-for-Intel-Quark.patch \
-    file://0007-serial-8250_pci-Add-support-for-accessing-red-LED-vi.patch \
+    file://0006-serial-8250_pci-Add-support-for-red-user-LED-on-IOT2.patch \
+    file://0007-efi-Move-efi_status_to_err-to-drivers-firmware-efi.patch \
+    file://0008-efi-Add-capsule-update-support.patch \
+    file://0009-x86-efi-Force-EFI-reboot-to-process-pending-capsules.patch \
+    file://0010-efi-Add-misc-char-driver-interface-to-update-EFI-fir.patch \
+    file://0011-efi-capsule-Make-efi_capsule_pending-lockless.patch \
+    file://0012-efi-capsule-Move-capsule-to-the-stack-in-efi_capsule.patch \
+    file://0013-efi-capsule-Allocate-whole-capsule-into-virtual-memo.patch \
+    file://0014-efi-capsule-Prepare-for-loading-images-with-security.patch \
+    file://0015-efi-capsule-Add-support-for-Quark-security-header.patch \
+    file://0016-spi-pxa2xx-Factor-out-handle_bad_msg.patch \
+    file://0017-spi-pxa2xx-Prepare-for-edge-triggered-interrupts.patch \
+    file://0018-spi-pca2xx-pci-Allow-MSI.patch \
     file://iot2000.cfg"
 
 LINUX_VERSION_iot2000 = "${LINUX_VERSION_INTEL_COMMON}"
