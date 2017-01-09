@@ -15,7 +15,7 @@ This layer depends on:
 
   URI: git://git.yoctoproject.org/meta-intel
   layers: meta-intel
-  branch: master
+  branch: krogoth
 ```
 
 
@@ -33,7 +33,7 @@ For setting up your host pc see the following description:
 
 ```shell
 $ git clone git://git.yoctoproject.org/poky.git poky -b krogoth
-$ git clone git://git.yoctoproject.org/meta-intel poky/meta-intel -b master
+$ git clone git://git.yoctoproject.org/meta-intel poky/meta-intel -b krogoth
 ```
 
 For the exact revision, you have to checkout these versions:
