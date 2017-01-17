@@ -19,7 +19,7 @@ SRC_URI += " \
     file://0016-spi-pxa2xx-Factor-out-handle_bad_msg.patch \
     file://0017-spi-pxa2xx-Prepare-for-edge-triggered-interrupts.patch \
     file://0018-spi-pca2xx-pci-Allow-MSI.patch \
-    file://iot2000.cfg"
+    file://iot2000.scc"
 
 LINUX_VERSION_iot2000 = "${LINUX_VERSION_INTEL_COMMON}"
 COMPATIBLE_MACHINE_iot2000 = "iot2000"
