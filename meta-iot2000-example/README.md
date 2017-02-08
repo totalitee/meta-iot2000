@@ -8,15 +8,15 @@ This layer depends on:
 ```
   URI: git://git.yoctoproject.org/poky
   layers: meta, meta-yocto, meta-yocto-bsp
-  branch: krogoth
+  branch: morty
 
   URI: git://git.openembedded.org/meta-openembedded
   layers: meta-oe
-  branch: krogoth
+  branch: morty
 
   URI: git://git.yoctoproject.org/meta-intel
   layers: meta-intel
-  branch: krogoth
+  branch: morty
 
   URI: git://git.yoctoproject.org/meta-java
   layers: meta-java
@@ -50,9 +50,9 @@ $ git clone git://git.yoctoproject.org/meta-intel-iot-middleware poky/meta-intel
 ```
 
 ```shell
-$ git -C poky/meta-oe checkout 247b1267bbe9
-$ git -C poky/meta-java checkout 9edf7d5aa5bd
-$ git -C poky/meta-intel-iot-middleware checkout 821cf14c8304
+$ git -C poky/meta-oe checkout 1efa5d623bc6
+$ git -C poky/meta-java checkout a265b31ec7d0
+$ git -C poky/meta-intel-iot-middleware checkout fc8eabfa4fb5
 ```
 
 Then download meta-iot2000 (if not done already) and enter the build
@@ -76,8 +76,28 @@ environment.
    "
 ```
 
-This replaces the changes to conf/bblayers.conf documented in
-()[../meta-iot2000-bsp/README.md]. The changes to conf/local.conf are the same.
+```diff
+--- iot2000-build/conf/local.conf.old
++++ iot2000-build/conf/local.conf
+@@ -34,7 +34,13 @@
+ #MACHINE ?= "edgerouter"
+ #
+ # This sets the default machine to be qemux86 if no other machine is selected:
+-MACHINE ??= "qemux86"
++MACHINE ??= "iot2000"
++
++PACKAGE_CLASSES = "package_ipk"
++
++PREFERRED_RPROVIDER_java2-runtime = "cacao"
++PREFERRED_PROVIDER_virtual/java-native = "cacao-native"
++PREFERRED_PROVIDER_virtual/java-initial-native = "cacao-initial-native"
+ 
+ #
+ # Where to place downloads
+```
+
+This replaces the changes to conf/bblayers.conf and conf/local.conf documented
+in ()[../meta-iot2000-bsp/README.md].
 
 #
 # SDK target architecture
