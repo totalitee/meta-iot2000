@@ -1,3 +1,7 @@
+do_compile_prepend() {
+    export GO386=387
+}
+
 do_compile() {
 	export GOARCH="${TARGET_ARCH}"
 	# supported amd64, 386, arm arm64
